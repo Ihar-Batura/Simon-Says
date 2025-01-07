@@ -34,14 +34,14 @@ function createGameContainer() {
 
   const keyboardLettersContainer = createElement({
     tag: 'div',
-    classes: ['keyboard-letters__container'],
+    classes: ['keyboard-letters__container', 'hide'],
     parent: keyboardContainer,
   });
   for (let i = 0; i < keyboard[1].length; i += 1) {
     createElement({
       tag: 'button',
       classes: ['btn', 'keyboard-btn', 'keyboard-btn__letter'],
-      text: keyboard[1][i],
+      text: keyboard[1][i].toUpperCase(),
       parent: keyboardLettersContainer,
     });
   }

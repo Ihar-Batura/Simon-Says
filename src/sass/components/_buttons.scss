@@ -19,7 +19,7 @@
   min-width: 75px;
   padding: 2px 8px;
   &.active {
-    background-color: #41cb47;
+    background-color: #81d185;
   }
 }
 
@@ -31,4 +31,10 @@
 .keyboard-btn__letter {
   width: calc(100% / 9 - 6px);
   padding: 7px;
+}
+
+.start-btn {
+  display: block;
+  width: 200px;
+  margin: 24px auto;
 }

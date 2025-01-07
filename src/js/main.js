@@ -21,8 +21,13 @@ const main = createElement({ tag: 'main', classes: ['main'] });
 const mainLevelBtns = createLevelButtons(['Easy', 'Medium', 'Hard']);
 const mainGameBtns = createGameBtns(['Repeat the sequence', 'New game']);
 const mainGameContainer = createGameContainer();
+const btnStart = createElement({
+  tag: 'button',
+  classes: ['btn', 'start-btn'],
+  text: 'Start',
+});
 
-main.append(mainLevelBtns, mainGameBtns, mainGameContainer);
+main.append(mainLevelBtns, mainGameBtns, mainGameContainer, btnStart);
 
 const footer = createElement({
   tag: 'footer',

@@ -1,4 +1,5 @@
 import createElement from './createElement.js';
+import chooseLevel from './chooseLevel.js';
 
 function createLevelButtons(arr) {
   const levelBtnsContainer = createElement({
@@ -11,6 +12,10 @@ function createLevelButtons(arr) {
       classes: ['btn', 'level-btn'],
       text: `${arr[i]}`,
       parent: levelBtnsContainer,
+    });
+
+    btn.addEventListener('click', (e) => {
+      chooseLevel(e.target.innerText);
     });
 
     if (arr[i] === 'Easy') {
