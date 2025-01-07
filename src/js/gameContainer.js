@@ -6,11 +6,13 @@ function createGameContainer() {
     tag: 'div',
     classes: ['main_game-container'],
   });
-  createElement({
+  const gameInput = createElement({
     tag: 'input',
     classes: ['game-container__input'],
     parent: gameContainer,
   });
+  gameInput.setAttribute('readonly', true);
+
   const keyboardContainer = createElement({
     tag: 'div',
     classes: ['game-container__keyboard-container'],

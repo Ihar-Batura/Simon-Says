@@ -22,3 +22,13 @@
     background-color: #41cb47;
   }
 }
+
+.keyboard-btn__number {
+  width: calc(100% / 10 - 6px);
+  padding: 7px;
+}
+
+.keyboard-btn__letter {
+  width: calc(100% / 9 - 6px);
+  padding: 7px;
+}
