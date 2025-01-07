@@ -5,6 +5,7 @@ function createElement(options) {
     id = '',
     text = '',
     href = '',
+    target = '',
     parent,
   } = options;
 
@@ -21,6 +22,9 @@ function createElement(options) {
   }
   if (href) {
     element.href = href;
+  }
+  if (target) {
+    element.target = target;
   }
   if (parent != null) {
     parent.append(element);
