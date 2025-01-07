@@ -7,3 +7,20 @@
   margin: 0 auto;
   padding: $padding-main;
 }
+
+.main-btns__level-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  p {
+    margin-left: auto;
+  }
+}
+
+.main-container__game-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}

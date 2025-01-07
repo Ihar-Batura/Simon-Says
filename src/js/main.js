@@ -1,5 +1,6 @@
 import createElement from './createElement.js';
 import createLevelButtons from './levelButtons.js';
+import createGameBtns from './gameButtons.js';
 
 const body = document.querySelector('body');
 
@@ -17,8 +18,9 @@ const logo = createElement({
 
 const main = createElement({ tag: 'main', classes: ['main'] });
 const mainLevelBtns = createLevelButtons(['Easy', 'Medium', 'Hard']);
+const mainGameBtns = createGameBtns(['Repeat the sequence', 'New game']);
 
-main.append(mainLevelBtns);
+main.append(mainLevelBtns, mainGameBtns);
 
 const footer = createElement({
   tag: 'footer',

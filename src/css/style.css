@@ -162,7 +162,7 @@ body {
   font-style: normal;
   font-weight: 600;
   color: #0d0d0a;
-  background-color: #f1fabd;
+  background-color: #f1faee;
   box-sizing: border-box;
 }
 
@@ -196,6 +196,22 @@ p {
   padding: 10px 20px;
 }
 
+.main-btns__level-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.main-btns__level-container p {
+  margin-left: auto;
+}
+
+.main-container__game-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
 .footer {
   width: 100%;
   max-width: 1440px;
@@ -213,4 +229,28 @@ p {
   letter-spacing: 0.02em;
   text-decoration: none;
   color: #eb240a;
+}
+
+.btn {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 7px;
+  background-color: #c7eac9;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+.btn:hover {
+  background-color: #81d185;
+}
+
+.level-btn,
+.game-btn {
+  min-width: 75px;
+  padding: 2px 8px;
+}
+.level-btn.active,
+.game-btn.active {
+  background-color: #41cb47;
 }
