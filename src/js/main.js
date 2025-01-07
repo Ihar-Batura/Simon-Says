@@ -1,4 +1,5 @@
 import createElement from './createElement.js';
+import createLevelButtons from './levelButtons.js';
 
 const body = document.querySelector('body');
 
@@ -15,6 +16,9 @@ const logo = createElement({
 });
 
 const main = createElement({ tag: 'main', classes: ['main'] });
+const mainLevelBtns = createLevelButtons(['Easy', 'Medium', 'Hard']);
+
+main.append(mainLevelBtns);
 
 const footer = createElement({
   tag: 'footer',
