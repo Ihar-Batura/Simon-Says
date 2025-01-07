@@ -188,6 +188,14 @@ p {
   color: #153aee;
 }
 
+.main {
+  width: 100%;
+  max-width: 1440px;
+  min-height: calc(100vh - 100px);
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
 .footer {
   width: 100%;
   max-width: 1440px;

@@ -14,6 +14,8 @@ const logo = createElement({
   parent: header,
 });
 
+const main = createElement({ tag: 'main', classes: ['main'] });
+
 const footer = createElement({
   tag: 'footer',
   classes: ['footer'],
@@ -28,4 +30,4 @@ const footerLink = createElement({
   parent: footer,
 });
 
-body.append(header, footer);
+body.append(header, main, footer);

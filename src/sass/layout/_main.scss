@@ -1,0 +1,9 @@
+@import '../abstracts/variables';
+
+.main {
+  width: 100%;
+  max-width: 1440px;
+  min-height: calc(100vh - 100px);
+  margin: 0 auto;
+  padding: $padding-main;
+}
