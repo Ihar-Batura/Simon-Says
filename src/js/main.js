@@ -2,6 +2,7 @@ import createElement from './createElement.js';
 import createLevelButtons from './levelButtons.js';
 import createGameBtns from './gameButtons.js';
 import createGameContainer from './gameContainer.js';
+import { disabledAllButtons, whatLevel } from './buttonsState.js';
 
 const body = document.querySelector('body');
 
@@ -25,6 +26,11 @@ const btnStart = createElement({
   tag: 'button',
   classes: ['btn', 'start-btn'],
   text: 'Start',
+});
+
+btnStart.addEventListener('click', function () {
+  disabledAllButtons(true);
+  whatLevel();
 });
 
 main.append(mainLevelBtns, mainGameBtns, mainGameContainer, btnStart);

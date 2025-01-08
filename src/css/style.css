@@ -288,6 +288,11 @@ p {
   background-color: #81d185;
 }
 
+.btn[disabled] {
+  background-color: #c7eac9;
+  cursor: not-allowed;
+}
+
 .level-btn,
 .game-btn {
   min-width: 75px;
