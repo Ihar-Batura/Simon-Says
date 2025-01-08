@@ -1,6 +1,13 @@
 import createElement from './createElement.js';
-import { startGame, repeatSequence } from './gameFunctional.js';
+import {
+  startGame,
+  repeatSequence,
+  cleanMainContainer,
+  whatLevel,
+} from './gameFunctional.js';
 import { disableOneButton } from './buttonsState.js';
+import { createMainContent } from './main.js';
+import chooseLevel from './chooseLevel.js';
 
 function createGameBtns(arr) {
   const gameBtnsContainer = createElement({
@@ -10,9 +17,8 @@ function createGameBtns(arr) {
   for (let i = 0; i < arr.length; i += 1) {
     const gameBtn = createElement({
       tag: 'button',
-      classes: ['btn', 'game-btn'],
+      classes: ['btn', 'game-btn', 'hide'],
       text: `${arr[i]}`,
-      disabled: 'true',
       parent: gameBtnsContainer,
     });
     if (i === 0) {
@@ -24,7 +30,13 @@ function createGameBtns(arr) {
     }
     if (i === 1) {
       gameBtn.classList.add('new-game__btn');
-      gameBtn.addEventListener('click', startGame);
+      gameBtn.addEventListener('click', function () {
+        const level = whatLevel();
+        console.log(level);
+        cleanMainContainer();
+        createMainContent(level);
+        chooseLevel(level);
+      });
     }
   }
 

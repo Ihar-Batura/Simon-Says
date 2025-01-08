@@ -208,8 +208,15 @@ p {
 .main-container__game-btns {
   display: flex;
   justify-content: space-between;
+  height: 28px;
   margin-top: 25px;
   margin-bottom: 30px;
+}
+
+.level-round.hide {
+  color: transparent;
+  cursor: default;
+  user-select: none;
 }
 
 .main_game-container {
@@ -308,6 +315,10 @@ p {
 .level-btn.active,
 .game-btn.active {
   background-color: #81d185;
+}
+
+.game-btn.hide {
+  display: none;
 }
 
 .keyboard-btn.active {

@@ -3,7 +3,7 @@ import createLevelButtons from './levelButtons.js';
 import createGameBtns from './gameButtons.js';
 import createGameContainer from './gameContainer.js';
 import { disableLevelButtons, showBtnStart } from './buttonsState.js';
-import { startGame } from './gameFunctional.js';
+import { startGame, showElement } from './gameFunctional.js';
 
 const body = document.querySelector('body');
 
@@ -18,24 +18,34 @@ const logo = createElement({
   text: 'Simon Says',
   parent: header,
 });
+body.append(header);
 
-const main = createElement({ tag: 'main', classes: ['main'] });
-const mainLevelBtns = createLevelButtons(['Easy', 'Medium', 'Hard']);
-const mainGameBtns = createGameBtns(['Repeat the sequence', 'New game']);
-const mainGameContainer = createGameContainer();
-const btnStart = createElement({
-  tag: 'button',
-  classes: ['btn', 'start-btn'],
-  text: 'Start',
-});
+createElement({ tag: 'main', classes: ['main'], parent: body });
 
-btnStart.addEventListener('click', function () {
-  disableLevelButtons(true);
-  startGame();
-  showBtnStart('hide');
-});
+export function createMainContent(startLevel) {
+  const main = document.querySelector('.main');
+  const mainLevelBtns = createLevelButtons(
+    ['Easy', 'Medium', 'Hard'],
+    startLevel
+  );
+  const mainGameBtns = createGameBtns(['Repeat the sequence', 'New game']);
+  const mainGameContainer = createGameContainer();
+  const btnStart = createElement({
+    tag: 'button',
+    classes: ['btn', 'start-btn'],
+    text: 'Start',
+  });
 
-main.append(mainLevelBtns, mainGameBtns, mainGameContainer, btnStart);
+  btnStart.addEventListener('click', function () {
+    disableLevelButtons(true);
+    startGame();
+    showBtnStart('hide');
+    showElement('level-round', 'show');
+  });
+
+  main.append(mainLevelBtns, mainGameBtns, mainGameContainer, btnStart);
+}
+createMainContent('Easy');
 
 const footer = createElement({
   tag: 'footer',
@@ -51,4 +61,4 @@ const footerLink = createElement({
   parent: footer,
 });
 
-body.append(header, main, footer);
+body.append(footer);

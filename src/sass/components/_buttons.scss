@@ -28,6 +28,12 @@
   }
 }
 
+.game-btn {
+  &.hide {
+    display: none;
+  }
+}
+
 .keyboard-btn {
   &.active {
     background-color: #81d185;

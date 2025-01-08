@@ -32,6 +32,7 @@ export function ChangeRound(roundNumber) {
 
 export function startGame() {
   cleanEnterInput();
+  showGameButtons();
   disableButtons('game-btn', true);
   disableButtons('keyboard-btn', true);
   const level = whatLevel();
@@ -180,3 +181,25 @@ export function checkKeyboardSymbol(symbol) {
 document.addEventListener('keyup', (event) => {
   checkKeyboardSymbol(event.key.toLowerCase());
 });
+
+export function showGameButtons() {
+  const gameBtnsList = document.querySelectorAll('.game-btn');
+  gameBtnsList.forEach((btn) => {
+    btn.classList.remove('hide');
+  });
+}
+
+export function cleanMainContainer() {
+  const main = document.querySelector('.main');
+  main.innerHTML = '';
+}
+
+export function showElement(className, action) {
+  const element = document.querySelector(`.${className}`);
+  if (action === 'show') {
+    element.classList.remove('hide');
+  }
+  if (action === 'hide') {
+    element.classList.add('hide');
+  }
+}

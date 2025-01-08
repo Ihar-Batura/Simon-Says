@@ -1,4 +1,4 @@
-function chooseLevel(level) {
+export function chooseLevel(level) {
   const listLevelBtns = document.querySelectorAll('.level-btn');
   listLevelBtns.forEach((btn) => {
     if (btn.innerText === level) {

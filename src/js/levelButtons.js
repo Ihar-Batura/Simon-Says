@@ -1,7 +1,7 @@
 import createElement from './createElement.js';
 import chooseLevel from './chooseLevel.js';
 
-function createLevelButtons(arr) {
+function createLevelButtons(arr, startLevel) {
   const levelBtnsContainer = createElement({
     tag: 'div',
     classes: ['main-btns__level-container'],
@@ -18,14 +18,14 @@ function createLevelButtons(arr) {
       chooseLevel(e.target.innerText);
     });
 
-    if (arr[i] === 'Easy') {
+    if (arr[i] === startLevel) {
       btn.classList.add('active');
     }
   }
 
   createElement({
     tag: 'p',
-    classes: ['level-round'],
+    classes: ['level-round', 'hide'],
     text: 'Round 1/5',
     parent: levelBtnsContainer,
   });
