@@ -19,12 +19,3 @@ export function disabledOneButton(className, action) {
     btn.setAttribute('disabled', '');
   }
 }
-
-export function whatLevel() {
-  const levelBtnsList = document.querySelectorAll('.level-btn');
-  levelBtnsList.forEach((btn) => {
-    if (btn.classList.value.includes('active')) {
-      console.log(btn.innerText);
-    }
-  });
-}
