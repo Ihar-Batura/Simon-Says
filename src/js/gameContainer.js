@@ -33,8 +33,8 @@ function createGameContainer() {
       parent: keyboardNumberContainer,
     });
     numberBtn.addEventListener('click', (e) => {
-      const symbol = e.target.innerText;
-      writeSymbolToEnterInput(symbol);
+      const keyboardSymbol = e.target.innerText;
+      writeSymbolToEnterInput(keyboardSymbol);
     });
   }
 

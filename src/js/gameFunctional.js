@@ -119,5 +119,43 @@ export function repeatSequence() {
 
 export function writeSymbolToEnterInput(symbol) {
   const input = document.querySelector('.game-container__input');
-  input.value += symbol;
+  input.value += symbol.toUpperCase();
 }
+
+export function checkKeyboardSymbol(symbol) {
+  let isBtnDisabled = true;
+  const keyboardsBtnsList = document.querySelectorAll('.keyboard-btn');
+  keyboardsBtnsList.forEach((btn) => {
+    if (
+      btn.innerHTML.toLowerCase() === symbol &&
+      !btn.hasAttribute('disabled')
+    ) {
+      isBtnDisabled = false;
+    }
+  });
+
+  const numberKeyboard = document.querySelector('.keyboard-number__container');
+  const letterKeyboard = document.querySelector('.keyboard-letters__container');
+  const isNumberKeyboardHide = numberKeyboard.classList.value.includes('hide');
+  const isLetterKeyboardHide = letterKeyboard.classList.value.includes('hide');
+
+  if (isNumberKeyboardHide && !isBtnDisabled) {
+    if (keyboard[1].includes(symbol)) {
+      writeSymbolToEnterInput(symbol);
+    }
+  }
+  if (isLetterKeyboardHide && !isBtnDisabled) {
+    if (keyboard[0].includes(symbol)) {
+      writeSymbolToEnterInput(symbol);
+    }
+  }
+  if (!isNumberKeyboardHide && !isLetterKeyboardHide && !isBtnDisabled) {
+    if (keyboard[0].includes(symbol) || keyboard[1].includes(symbol)) {
+      writeSymbolToEnterInput(symbol);
+    }
+  }
+}
+
+document.addEventListener('keyup', (event) => {
+  checkKeyboardSymbol(event.key.toLowerCase());
+});
