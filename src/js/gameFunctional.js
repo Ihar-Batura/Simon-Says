@@ -1,4 +1,6 @@
 import { keyboard } from './keyboard.js';
+import { disableButtons } from './buttonsState.js';
+let saveSequence;
 
 export function getRandomNumber(min, max) {
   return Math.floor(min + Math.random() * (max - min));
@@ -29,11 +31,19 @@ export function ChangeRound(roundNumber) {
 }
 
 export function startGame() {
+  cleanEnterInput();
+  disableButtons('game-btn', true);
+  disableButtons('keyboard-btn', true);
   const level = whatLevel();
   const round = whatRound();
   const sequence = getSequence(level, round);
   console.log(sequence);
+  saveSequence = sequence;
   simonSaysSymbols(sequence);
+  setTimeout(function () {
+    disableButtons('game-btn', false);
+    disableButtons('keyboard-btn', false);
+  }, 3000);
 }
 
 export function getSequence(level, round) {
@@ -91,4 +101,18 @@ function showHints(symbol) {
     }
     // нужно будет доделать интервал между добавлением и удалением
   });
+}
+
+export function cleanEnterInput() {
+  const input = document.querySelector('.game-container__input');
+  input.value = '';
+}
+
+export function repeatSequence() {
+  cleanEnterInput();
+  disableButtons('keyboard-btn', true);
+  simonSaysSymbols(saveSequence);
+  setTimeout(function () {
+    disableButtons('keyboard-btn', false);
+  }, 3000);
 }

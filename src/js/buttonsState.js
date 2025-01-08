@@ -1,3 +1,15 @@
+export function disableButtons(className, action) {
+  const btnsList = document.querySelectorAll(`.${className}`);
+
+  btnsList.forEach((btn) => {
+    if (action === true) {
+      btn.setAttribute('disabled', 'true');
+    } else {
+      btn.removeAttribute('disabled');
+    }
+  });
+}
+
 export function disableLevelButtons(action) {
   const btnsList = document.querySelectorAll('.level-btn');
 
@@ -5,18 +17,18 @@ export function disableLevelButtons(action) {
     if (action === true) {
       btn.setAttribute('disabled', 'true');
     } else {
-      btn.setAttribute('disabled', '');
+      btn.removeAttribute('disabled');
     }
   });
 }
 
-export function disableButton(className, action) {
+export function disableOneButton(className, action) {
   const btn = document.querySelector(`.${className}`);
 
   if (action === true) {
     btn.setAttribute('disabled', 'true');
   } else {
-    btn.setAttribute('disabled', '');
+    btn.removeAttribute('disabled');
   }
 }
 
