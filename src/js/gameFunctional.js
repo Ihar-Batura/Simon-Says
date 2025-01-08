@@ -105,6 +105,8 @@ function showHints(symbol) {
 
 export function cleanEnterInput() {
   const input = document.querySelector('.game-container__input');
+  input.classList.remove('error');
+  input.classList.remove('right');
   input.value = '';
 }
 
@@ -120,6 +122,25 @@ export function repeatSequence() {
 export function writeSymbolToEnterInput(symbol) {
   const input = document.querySelector('.game-container__input');
   input.value += symbol.toUpperCase();
+  checkInputValue();
+}
+
+export function checkInputValue() {
+  const input = document.querySelector('.game-container__input');
+  const enterValueLength = input.value.length;
+  const sequenceLength = saveSequence.length;
+  const enteredValue = input.value
+    .split('')
+    .map((el) => el.toLowerCase())
+    .join('');
+  if (sequenceLength >= enterValueLength) {
+    if (enteredValue !== saveSequence.substring(0, enterValueLength)) {
+      input.classList.add('error');
+    }
+  }
+  if (sequenceLength === enterValueLength && enteredValue === saveSequence) {
+    input.classList.add('right');
+  }
 }
 
 export function checkKeyboardSymbol(symbol) {
