@@ -116,3 +116,8 @@ export function repeatSequence() {
     disableButtons('keyboard-btn', false);
   }, 3000);
 }
+
+export function writeSymbolToEnterInput(symbol) {
+  const input = document.querySelector('.game-container__input');
+  input.value += symbol;
+}

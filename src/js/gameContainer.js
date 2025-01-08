@@ -1,5 +1,6 @@
 import createElement from './createElement.js';
 import { keyboard } from './keyboard.js';
+import { writeSymbolToEnterInput } from './gameFunctional.js';
 
 function createGameContainer() {
   const gameContainer = createElement({
@@ -24,12 +25,16 @@ function createGameContainer() {
     parent: keyboardContainer,
   });
   for (let i = 0; i < keyboard[0].length; i += 1) {
-    createElement({
+    const numberBtn = createElement({
       tag: 'button',
       classes: ['btn', 'keyboard-btn', 'keyboard-btn__number'],
       text: keyboard[0][i],
       disabled: 'true',
       parent: keyboardNumberContainer,
+    });
+    numberBtn.addEventListener('click', (e) => {
+      const symbol = e.target.innerText;
+      writeSymbolToEnterInput(symbol);
     });
   }
 
@@ -39,12 +44,16 @@ function createGameContainer() {
     parent: keyboardContainer,
   });
   for (let i = 0; i < keyboard[1].length; i += 1) {
-    createElement({
+    const letterBtn = createElement({
       tag: 'button',
       classes: ['btn', 'keyboard-btn', 'keyboard-btn__letter'],
       text: keyboard[1][i].toUpperCase(),
       disabled: 'true',
       parent: keyboardLettersContainer,
+    });
+    letterBtn.addEventListener('click', (e) => {
+      const symbol = e.target.innerText;
+      writeSymbolToEnterInput(symbol);
     });
   }
 
