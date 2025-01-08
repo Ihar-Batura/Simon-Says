@@ -38,6 +38,9 @@
   &.active {
     background-color: #81d185;
   }
+  &:not([disabled]):active {
+    background-color: #24a32a;
+  }
 }
 
 .keyboard-btn__number {

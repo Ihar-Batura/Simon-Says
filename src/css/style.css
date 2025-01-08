@@ -236,7 +236,8 @@ p {
   border: none;
   border-radius: 4px;
   outline: none;
-  cursor: none;
+  user-select: none;
+  cursor: not-allowed;
 }
 .game-container__input.error {
   background-color: rgb(239, 72, 72);
@@ -323,6 +324,9 @@ p {
 
 .keyboard-btn.active {
   background-color: #81d185;
+}
+.keyboard-btn:not([disabled]):active {
+  background-color: #24a32a;
 }
 
 .keyboard-btn__number {
