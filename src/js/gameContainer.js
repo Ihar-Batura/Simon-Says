@@ -28,6 +28,7 @@ function createGameContainer() {
       tag: 'button',
       classes: ['btn', 'keyboard-btn', 'keyboard-btn__number'],
       text: keyboard[0][i],
+      disabled: 'true',
       parent: keyboardNumberContainer,
     });
   }
@@ -42,6 +43,7 @@ function createGameContainer() {
       tag: 'button',
       classes: ['btn', 'keyboard-btn', 'keyboard-btn__letter'],
       text: keyboard[1][i].toUpperCase(),
+      disabled: 'true',
       parent: keyboardLettersContainer,
     });
   }

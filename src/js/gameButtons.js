@@ -10,6 +10,7 @@ function createGameBtns(arr) {
       tag: 'button',
       classes: ['btn', 'game-btn'],
       text: `${arr[i]}`,
+      disabled: 'true',
       parent: gameBtnsContainer,
     });
   }

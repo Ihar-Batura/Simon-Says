@@ -28,6 +28,12 @@
   }
 }
 
+.keyboard-btn {
+  &.active {
+    background-color: #81d185;
+  }
+}
+
 .keyboard-btn__number {
   width: calc(100% / 10 - 6px);
   padding: 7px;
@@ -42,4 +48,8 @@
   display: block;
   width: 200px;
   margin: 24px auto;
+
+  &.hide {
+    display: none;
+  }
 }

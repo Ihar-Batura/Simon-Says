@@ -303,6 +303,10 @@ p {
   background-color: #81d185;
 }
 
+.keyboard-btn.active {
+  background-color: #81d185;
+}
+
 .keyboard-btn__number {
   width: calc(10% - 6px);
   padding: 7px;
@@ -317,4 +321,7 @@ p {
   display: block;
   width: 200px;
   margin: 24px auto;
+}
+.start-btn.hide {
+  display: none;
 }

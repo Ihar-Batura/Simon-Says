@@ -6,6 +6,7 @@ function createElement(options) {
     text = '',
     href = '',
     target = '',
+    disabled = '',
     parent,
   } = options;
 
@@ -25,6 +26,9 @@ function createElement(options) {
   }
   if (target) {
     element.target = target;
+  }
+  if (disabled) {
+    element.setAttribute('disabled', disabled);
   }
   if (parent != null) {
     parent.append(element);

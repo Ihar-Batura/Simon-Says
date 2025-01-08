@@ -33,6 +33,7 @@ export function startGame() {
   const round = whatRound();
   const sequence = getSequence(level, round);
   console.log(sequence);
+  simonSaysSymbols(sequence);
 }
 
 export function getSequence(level, round) {
@@ -63,4 +64,31 @@ export function getSequence(level, round) {
     }
   }
   return result;
+}
+
+export function simonSaysSymbols(string) {
+  for (let i = 0; i < string.length; i += 1) {
+    const symbol = string[i];
+    setTimeout(showHints, 500, symbol);
+  }
+}
+
+function showHints(symbol) {
+  const keyboardContainer = document.querySelector(
+    '.game-container__keyboard-container'
+  );
+  const keyboardBtnSList = keyboardContainer.querySelectorAll('.btn');
+
+  keyboardBtnSList.forEach((btn) => {
+    if (btn.innerHTML.toLocaleLowerCase() === symbol) {
+      setTimeout(function () {
+        btn.classList.add('active');
+      }, 0);
+      //btn.classList.add('active');
+      setTimeout(function () {
+        btn.classList.remove('active');
+      }, 500);
+    }
+    // нужно будет доделать интервал между добавлением и удалением
+  });
 }
