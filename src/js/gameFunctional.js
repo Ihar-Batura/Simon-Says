@@ -1,5 +1,5 @@
 import { keyboard } from './keyboard.js';
-import { disableButtons } from './buttonsState.js';
+import { disableButtons, changeButtonValue } from './buttonsState.js';
 let saveSequence;
 
 export function getRandomNumber(min, max) {
@@ -111,6 +111,11 @@ export function cleanEnterInput() {
   input.value = '';
 }
 
+export function showTextInInput(text) {
+  const input = document.querySelector('.game-container__input');
+  input.value = `${text}`;
+}
+
 export function repeatSequence() {
   cleanEnterInput();
   disableButtons('keyboard-btn', true);
@@ -137,10 +142,16 @@ export function checkInputValue() {
   if (sequenceLength >= enterValueLength) {
     if (enteredValue !== saveSequence.substring(0, enterValueLength)) {
       input.classList.add('error');
+      disableButtons('keyboard-btn', true);
+      showTextInInput('Mistake :(');
     }
   }
   if (sequenceLength === enterValueLength && enteredValue === saveSequence) {
     input.classList.add('right');
+    disableButtons('keyboard-btn', true);
+    showTextInInput(`It's all correct :)`);
+    changeButtonValue('repeat-next__btn', 'Next');
+    disableButtons('repeat-next__btn', false);
   }
 }
 
