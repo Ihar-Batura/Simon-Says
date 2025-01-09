@@ -30,7 +30,7 @@ export function ChangeRound(roundNumber) {
   levelRound.innerText = `Round ${nextRound}/5`;
 }
 
-export function startGame() {
+export async function startGame() {
   cleanEnterInput();
   showGameButtons();
   disableButtons('game-btn', true);
@@ -38,13 +38,11 @@ export function startGame() {
   const level = whatLevel();
   const round = whatRound();
   const sequence = getSequence(level, round);
-  console.log(sequence);
+  console.log('sequence: ', sequence);
   saveSequence = sequence;
-  simonSaysSymbols(sequence);
-  setTimeout(function () {
-    disableButtons('game-btn', false);
-    disableButtons('keyboard-btn', false);
-  }, 3000);
+  await simonSaysSymbols(sequence);
+  disableButtons('game-btn', false);
+  disableButtons('keyboard-btn', false);
 }
 
 export function getSequence(level, round) {
@@ -77,31 +75,29 @@ export function getSequence(level, round) {
   return result;
 }
 
-export function simonSaysSymbols(string) {
+export async function simonSaysSymbols(string) {
   for (let i = 0; i < string.length; i += 1) {
-    const symbol = string[i];
-    setTimeout(showHints, 500, symbol);
+    const keyboardContainer = document.querySelector(
+      '.game-container__keyboard-container'
+    );
+    const keyboardBtnSList = keyboardContainer.querySelectorAll('.btn');
+
+    let button;
+
+    keyboardBtnSList.forEach((btn) => {
+      if (btn.innerHTML.toLocaleLowerCase() === string[i]) {
+        button = btn;
+      }
+    });
+    await waitTime(200);
+    button.classList.add('active');
+    await waitTime(400);
+    button.classList.remove('active');
   }
 }
 
-function showHints(symbol) {
-  const keyboardContainer = document.querySelector(
-    '.game-container__keyboard-container'
-  );
-  const keyboardBtnSList = keyboardContainer.querySelectorAll('.btn');
-
-  keyboardBtnSList.forEach((btn) => {
-    if (btn.innerHTML.toLocaleLowerCase() === symbol) {
-      setTimeout(function () {
-        btn.classList.add('active');
-      }, 0);
-      //btn.classList.add('active');
-      setTimeout(function () {
-        btn.classList.remove('active');
-      }, 500);
-    }
-    // нужно будет доделать интервал между добавлением и удалением
-  });
+function waitTime(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export function cleanEnterInput() {
@@ -159,8 +155,7 @@ export function checkInputValue() {
       input.classList.add('right');
       disableButtons('keyboard-btn', true);
       showTextInInput(`The level passed!`);
-      showElement('level-round', 'hide');
-      showElement('repeat-next__btn', 'hide');
+      disableButtons('repeat-next__btn', true);
     }
   }
 }
