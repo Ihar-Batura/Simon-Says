@@ -14,5 +14,14 @@
   font-size: 22px;
   line-height: 120%;
   letter-spacing: 0.02em;
-  color: $color-primary;
+  background-image: linear-gradient(to right, #00c4ff, #ffe700);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-box-decoration-break: clone;
+}
+
+@media (width < 500px) {
+  .header {
+    padding: $padding-main-small;
+  }
 }

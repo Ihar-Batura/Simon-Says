@@ -25,3 +25,9 @@
   margin-top: 25px;
   margin-bottom: 30px;
 }
+
+@media (width < 500px) {
+  .main {
+    padding: $padding-main-small;
+  }
+}

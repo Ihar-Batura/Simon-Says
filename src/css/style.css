@@ -185,9 +185,17 @@ p {
   font-size: 22px;
   line-height: 120%;
   letter-spacing: 0.02em;
-  color: #153aee;
+  background-image: linear-gradient(to right, #00c4ff, #ffe700);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-box-decoration-break: clone;
 }
 
+@media (width < 500px) {
+  .header {
+    padding: 10px 10px;
+  }
+}
 .main {
   width: 100%;
   max-width: 1440px;
@@ -213,6 +221,11 @@ p {
   margin-bottom: 30px;
 }
 
+@media (width < 500px) {
+  .main {
+    padding: 10px 10px;
+  }
+}
 .level-round.hide {
   color: transparent;
   cursor: default;
@@ -229,10 +242,11 @@ p {
   display: block;
   width: 300px;
   height: 50px;
+  font-size: 35px;
+  font-weight: 400;
   padding: 0 10px;
   margin: 0 auto;
   margin-bottom: 24px;
-  font-size: 35px;
   border: none;
   border-radius: 4px;
   outline: none;
@@ -240,10 +254,10 @@ p {
   cursor: not-allowed;
 }
 .game-container__input.error {
-  background-color: rgb(239, 72, 72);
+  background-color: #ef5e5e;
 }
 .game-container__input.right {
-  background-color: rgb(44, 180, 14);
+  background-color: #63c24e;
 }
 
 .game-container__keyboard-container {
@@ -286,9 +300,14 @@ p {
   line-height: 120%;
   letter-spacing: 0.02em;
   text-decoration: none;
-  color: #eb240a;
+  color: rgba(35, 59, 2, 0.6509803922);
 }
 
+@media (width < 500px) {
+  .footer {
+    padding: 10px 10px;
+  }
+}
 .btn {
   font-weight: 500;
   letter-spacing: 0.02em;

@@ -16,5 +16,11 @@
   line-height: 120%;
   letter-spacing: 0.02em;
   text-decoration: none;
-  color: $color-specific;
+  color: $color-github;
+}
+
+@media (width < 500px) {
+  .footer {
+    padding: $padding-main-small;
+  }
 }

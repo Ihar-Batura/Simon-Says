@@ -89,9 +89,9 @@ export async function simonSaysSymbols(string) {
         button = btn;
       }
     });
-    await waitTime(200);
+    await waitTime(250);
     button.classList.add('active');
-    await waitTime(400);
+    await waitTime(500);
     button.classList.remove('active');
   }
 }
@@ -112,13 +112,11 @@ export function showTextInInput(text) {
   input.value = `${text}`;
 }
 
-export function repeatSequence() {
+export async function repeatSequence() {
   cleanEnterInput();
   disableButtons('keyboard-btn', true);
-  simonSaysSymbols(saveSequence);
-  setTimeout(function () {
-    disableButtons('keyboard-btn', false);
-  }, 3000);
+  await simonSaysSymbols(saveSequence);
+  disableButtons('keyboard-btn', false);
 }
 
 export function writeSymbolToEnterInput(symbol) {
@@ -139,7 +137,7 @@ export function checkInputValue() {
     if (enteredValue !== saveSequence.substring(0, enterValueLength)) {
       input.classList.add('error');
       disableButtons('keyboard-btn', true);
-      showTextInInput('Mistake :(');
+      showTextInInput('Ooops... wrong :(');
     }
   }
   if (sequenceLength === enterValueLength && enteredValue === saveSequence) {
