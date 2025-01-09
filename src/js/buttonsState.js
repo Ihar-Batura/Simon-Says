@@ -40,3 +40,8 @@ export function showBtnStart(action) {
     btn.classList.remove('hide');
   }
 }
+
+export function changeButtonValue(className, value) {
+  const btn = document.querySelector(`.${className}`);
+  btn.innerHTML = value;
+}
