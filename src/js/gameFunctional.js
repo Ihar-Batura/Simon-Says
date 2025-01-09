@@ -25,7 +25,7 @@ export function whatRound() {
 
 export function ChangeRound(roundNumber) {
   const levelRound = document.querySelector('.level-round');
-  const nextRound = roundNumber < 5 ? roundNumber : 1;
+  const nextRound = roundNumber < 6 ? roundNumber : 1;
 
   levelRound.innerText = `Round ${nextRound}/5`;
 }
@@ -147,11 +147,21 @@ export function checkInputValue() {
     }
   }
   if (sequenceLength === enterValueLength && enteredValue === saveSequence) {
-    input.classList.add('right');
-    disableButtons('keyboard-btn', true);
-    showTextInInput(`It's all correct :)`);
-    changeButtonValue('repeat-next__btn', 'Next');
-    disableButtons('repeat-next__btn', false);
+    const roundNumber = whatRound();
+    if (roundNumber < 5) {
+      input.classList.add('right');
+      disableButtons('keyboard-btn', true);
+      showTextInInput(`It's all correct :)`);
+      changeButtonValue('repeat-next__btn', 'Next');
+      disableButtons('repeat-next__btn', false);
+    }
+    if (roundNumber === 5) {
+      input.classList.add('right');
+      disableButtons('keyboard-btn', true);
+      showTextInInput(`The level passed!`);
+      showElement('level-round', 'hide');
+      showElement('repeat-next__btn', 'hide');
+    }
   }
 }
 

@@ -318,6 +318,10 @@ p {
   background-color: #81d185;
 }
 
+.new-game__btn {
+  margin-left: auto;
+}
+
 .game-btn.hide {
   display: none;
 }
