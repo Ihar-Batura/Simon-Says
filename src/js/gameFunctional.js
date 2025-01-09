@@ -199,9 +199,20 @@ export function checkKeyboardSymbol(symbol) {
   }
 }
 
+let btnSymbolPress = 'empty';
+
+document.addEventListener('keydown', (event) => {
+  if (btnSymbolPress === 'empty') {
+    btnSymbolPress = event.key;
+  }
+});
+
 document.addEventListener('keyup', (event) => {
-  highlightBtn(event.key.toUpperCase());
-  checkKeyboardSymbol(event.key.toLowerCase());
+  if (btnSymbolPress === event.key) {
+    highlightBtn(event.key.toUpperCase());
+    checkKeyboardSymbol(event.key.toLowerCase());
+    btnSymbolPress = 'empty';
+  }
 });
 
 export function showGameButtons() {
