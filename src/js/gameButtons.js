@@ -4,8 +4,10 @@ import {
   repeatSequence,
   cleanMainContainer,
   whatLevel,
+  whatRound,
+  ChangeRound,
 } from './gameFunctional.js';
-import { disableOneButton } from './buttonsState.js';
+import { disableOneButton, changeButtonValue } from './buttonsState.js';
 import { createMainContent } from './main.js';
 import chooseLevel from './chooseLevel.js';
 
@@ -24,15 +26,23 @@ function createGameBtns(arr) {
     if (i === 0) {
       gameBtn.classList.add('repeat-next__btn');
       gameBtn.addEventListener('click', function () {
-        repeatSequence();
-        disableOneButton('repeat-next__btn', true);
+        const btnValue = document.querySelector('.repeat-next__btn').innerHTML;
+        if (btnValue === 'Repeat the sequence') {
+          repeatSequence();
+          disableOneButton('repeat-next__btn', true);
+        }
+        if (btnValue === 'Next') {
+          const round = whatRound();
+          ChangeRound(round + 1);
+          changeButtonValue('repeat-next__btn', 'Repeat the sequence');
+          startGame();
+        }
       });
     }
     if (i === 1) {
       gameBtn.classList.add('new-game__btn');
       gameBtn.addEventListener('click', function () {
         const level = whatLevel();
-        console.log(level);
         cleanMainContainer();
         createMainContent(level);
         chooseLevel(level);
