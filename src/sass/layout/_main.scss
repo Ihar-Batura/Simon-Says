@@ -12,6 +12,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-top: 5px;
 
   p {
     margin-left: auto;
@@ -22,12 +23,13 @@
   display: flex;
   justify-content: space-between;
   height: 28px;
-  margin-top: 25px;
-  margin-bottom: 30px;
+  margin-top: 30px;
+  margin-bottom: 35px;
 }
 
 @media (width < 500px) {
   .main {
     padding: $padding-main-small;
+    min-height: calc(100dvh - 100px);
   }
 }
