@@ -200,8 +200,8 @@ export function checkKeyboardSymbol(symbol) {
 }
 
 document.addEventListener('keyup', (event) => {
-  checkKeyboardSymbol(event.key.toLowerCase());
   highlightBtn(event.key.toUpperCase());
+  checkKeyboardSymbol(event.key.toLowerCase());
 });
 
 export function showGameButtons() {
@@ -230,10 +230,12 @@ export function highlightBtn(letter) {
   const keyboardBtnList = document.querySelectorAll('.keyboard-btn');
   keyboardBtnList.forEach((btn) => {
     if (btn.innerHTML === letter) {
-      btn.classList.add('active');
-      setTimeout(function () {
-        btn.classList.remove('active');
-      }, 300);
+      if (!btn.hasAttribute('disabled')) {
+        btn.classList.add('active');
+        setTimeout(function () {
+          btn.classList.remove('active');
+        }, 300);
+      }
     }
   });
 }
