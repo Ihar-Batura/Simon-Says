@@ -4,18 +4,20 @@
   font-weight: 500;
   letter-spacing: 0.02em;
   padding: 7px;
-  background-color: #c7eac9;
+  background-color: #97e39c;
+
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: all $transition;
   &:hover {
-    background-color: #81d185;
+    background-color: #54a758;
   }
 }
 
 .btn[disabled] {
   background-color: #c7eac9;
+  color: $color-github;
   cursor: not-allowed;
 }
 
@@ -24,7 +26,13 @@
   min-width: 75px;
   padding: 2px 8px;
   &.active {
-    background-color: #81d185;
+    background-color: #54a758;
+    color: $color-dark;
+  }
+  &.active {
+    &[disabled] {
+      color: $color-github;
+    }
   }
 }
 
@@ -40,10 +48,12 @@
 
 .keyboard-btn {
   &.active {
-    background-color: #81d185;
+    background-color: #54a758;
+    color: $color-dark;
   }
   &:not([disabled]):active {
-    background-color: #24a32a;
+    background-color: #54a758;
+    color: $color-dark;
   }
 }
 
