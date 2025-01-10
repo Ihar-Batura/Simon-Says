@@ -182,7 +182,7 @@ p {
 }
 
 .header-logo {
-  font-size: 22px;
+  font-size: 24px;
   line-height: 120%;
   letter-spacing: 0.02em;
   background-image: linear-gradient(to right, #00c4ff, #ffe700);
@@ -208,7 +208,7 @@ p {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 .main-btns__level-container p {
   margin-left: auto;
@@ -248,9 +248,11 @@ p {
   font-weight: 400;
   padding: 0 10px;
   margin: 0 auto;
-  margin-bottom: 48px;
-  border: none;
+  margin-bottom: 36px;
+  border: 2px solid rgba(35, 59, 2, 0.6509803922);
   border-radius: 4px;
+  color: rgba(35, 59, 2, 0.6509803922);
+  text-align: center;
   outline: none;
   user-select: none;
   cursor: not-allowed;
@@ -314,18 +316,19 @@ p {
   font-weight: 500;
   letter-spacing: 0.02em;
   padding: 7px;
-  background-color: #c7eac9;
+  background-color: #97e39c;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.5s ease-out;
 }
 .btn:hover {
-  background-color: #81d185;
+  background-color: #54a758;
 }
 
 .btn[disabled] {
   background-color: #c7eac9;
+  color: rgba(35, 59, 2, 0.6509803922);
   cursor: not-allowed;
 }
 
@@ -336,7 +339,12 @@ p {
 }
 .level-btn.active,
 .game-btn.active {
-  background-color: #81d185;
+  background-color: #54a758;
+  color: #0d0d0a;
+}
+.level-btn.active[disabled],
+.game-btn.active[disabled] {
+  color: rgba(35, 59, 2, 0.6509803922);
 }
 
 .new-game__btn {
@@ -348,10 +356,12 @@ p {
 }
 
 .keyboard-btn.active {
-  background-color: #81d185;
+  background-color: #54a758;
+  color: #0d0d0a;
 }
 .keyboard-btn:not([disabled]):active {
-  background-color: #24a32a;
+  background-color: #54a758;
+  color: #0d0d0a;
 }
 
 .keyboard-btn__number {
