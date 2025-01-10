@@ -27,7 +27,7 @@ export function ChangeRound(roundNumber) {
   const levelRound = document.querySelector('.level-round');
   const nextRound = roundNumber < 6 ? roundNumber : 1;
 
-  levelRound.innerText = `Round ${nextRound}/5`;
+  levelRound.textContent = `Round ${nextRound}/5`;
 }
 
 export async function startGame() {
@@ -89,7 +89,7 @@ export async function simonSaysSymbols(string) {
         button = btn;
       }
     });
-    await waitTime(250);
+    await waitTime(300);
     button.classList.add('active');
     await waitTime(500);
     button.classList.remove('active');
@@ -217,7 +217,9 @@ export function showGameButtons() {
 
 export function cleanMainContainer() {
   const main = document.querySelector('.main');
-  main.innerHTML = '';
+  while (main.firstChild) {
+    main.removeChild(main.firstChild);
+  }
 }
 
 export function showElement(className, action) {

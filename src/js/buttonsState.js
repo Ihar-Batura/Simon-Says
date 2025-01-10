@@ -43,5 +43,5 @@ export function showBtnStart(action) {
 
 export function changeButtonValue(className, value) {
   const btn = document.querySelector(`.${className}`);
-  btn.innerHTML = value;
+  btn.textContent = value;
 }
