@@ -30,6 +30,7 @@ function createGameBtns(arr) {
         if (btnValue === 'Repeat the sequence') {
           repeatSequence();
           disableOneButton('repeat-next__btn', true);
+          disableOneButton('new-game__btn', true);
         }
         if (btnValue === 'Next') {
           const round = whatRound();

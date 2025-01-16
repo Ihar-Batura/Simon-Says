@@ -1,5 +1,9 @@
 import { keyboard } from './keyboard.js';
-import { disableButtons, changeButtonValue } from './buttonsState.js';
+import {
+  disableButtons,
+  changeButtonValue,
+  disableOneButton,
+} from './buttonsState.js';
 let saveSequence;
 
 export function getRandomNumber(min, max) {
@@ -117,6 +121,7 @@ export async function repeatSequence() {
   disableButtons('keyboard-btn', true);
   await simonSaysSymbols(saveSequence);
   disableButtons('keyboard-btn', false);
+  disableOneButton('new-game__btn', false);
 }
 
 export function writeSymbolToEnterInput(symbol) {
