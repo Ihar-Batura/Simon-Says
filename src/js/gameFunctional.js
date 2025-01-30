@@ -134,16 +134,22 @@ export function checkInputValue() {
   const input = document.querySelector('.game-container__input');
   const enterValueLength = input.value.length;
   const sequenceLength = saveSequence.length;
+  const btnRepeat = document.querySelector('.repeat-next__btn');
   const enteredValue = input.value
     .split('')
     .map((el) => el.toLowerCase())
     .join('');
+
   if (sequenceLength >= enterValueLength) {
     if (enteredValue !== saveSequence.substring(0, enterValueLength)) {
       disableButtons('keyboard-btn', true);
       input.classList.add('error');
       setTimeout(() => {
-        showTextInInput('Ooops... wrong :(');
+        if (btnRepeat.hasAttribute('disabled')) {
+          showTextInInput('Game Over :(');
+        } else {
+          showTextInInput('Ooops... wrong :(');
+        }
       }, 400);
     }
   }
