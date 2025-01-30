@@ -140,25 +140,31 @@ export function checkInputValue() {
     .join('');
   if (sequenceLength >= enterValueLength) {
     if (enteredValue !== saveSequence.substring(0, enterValueLength)) {
-      input.classList.add('error');
       disableButtons('keyboard-btn', true);
-      showTextInInput('Ooops... wrong :(');
+      input.classList.add('error');
+      setTimeout(() => {
+        showTextInInput('Ooops... wrong :(');
+      }, 400);
     }
   }
   if (sequenceLength === enterValueLength && enteredValue === saveSequence) {
     const roundNumber = whatRound();
     if (roundNumber < 5) {
-      input.classList.add('right');
       disableButtons('keyboard-btn', true);
-      showTextInInput(`It's all correct :)`);
-      changeButtonValue('repeat-next__btn', 'Next');
-      disableButtons('repeat-next__btn', false);
+      input.classList.add('right');
+      setTimeout(() => {
+        showTextInInput(`It's all correct :)`);
+        changeButtonValue('repeat-next__btn', 'Next');
+        disableButtons('repeat-next__btn', false);
+      }, 400);
     }
     if (roundNumber === 5) {
       input.classList.add('right');
       disableButtons('keyboard-btn', true);
-      showTextInInput(`The level passed!`);
       disableButtons('repeat-next__btn', true);
+      setTimeout(() => {
+        showTextInInput(`The level passed!`);
+      }, 400);
     }
   }
 }
